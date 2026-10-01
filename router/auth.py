@@ -168,7 +168,7 @@ def send_email_sync(receiver_email: str, otp: str):
     message.attach(MIMEText(html_content, "html"))
 
     try:
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10) as server:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.ehlo()
             server.starttls()
             server.login(SMTP_EMAIL, SMTP_PASSWORD)
