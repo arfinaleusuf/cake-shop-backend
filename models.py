@@ -23,7 +23,7 @@ class Products(Base):
     img_url = Column(String, nullable=True)
     title = Column(String)
     description = Column(String)
-    price = (Integer)
+    price = Column(Integer)
     is_available = Column(Boolean, default=True)
 
 
@@ -31,9 +31,9 @@ class Orders(Base):
     __tablename__= "orders"
 
     id = Column(Integer, index=True, primary_key=True)
-    product_id = Column(String, ForeignKey("products.id"))
-    coustomer_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    coustomer_phone = Column(String) 
+    product_id = Column(Integer, ForeignKey("products.id"))
+    customer_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    customer_phone = Column(String) 
     bill = Column(Float)
 
 class PasswordResetOtp(Base):
